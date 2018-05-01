@@ -6,8 +6,9 @@
 
 
 <ul>
-  <li>Use terminal launch the python3 program: python3 -i timer.py</li>
+  <li>Use terminal launch the python3 program</li>
   <code>$ python3 - timer.py</code>
+  </br>
   </br>
   <li>Use Exam(semester, year, numbers-of-total-questions) to construct an instance of exam. for example asign it with name fall_2017. After hit <code>enter</code>, you can provide points for each question. </li>
   <code> >>> fall_spring = Exam('fall', 2017, 7) # 7 means there are 7 questions in fall 2017. </code>
