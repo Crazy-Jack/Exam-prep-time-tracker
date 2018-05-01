@@ -7,22 +7,17 @@
 
 <ul>
   <li>Use terminal launch the python3 program: python3 -i timer.py</li>
-  * <code>python3 - timer.py</code>
-  <li>Use Exam(semester, year, numbers-of-total-questions) to construct an instance of exam. for example asign it with name `fall_2017`. After hit `enter`, you can provide points for each question. </li>
-  ```python
-  >>> fall_spring = Exam('fall', 2017, 7) # 7 means there are 7 questions in fall 2017.
-  ```
+  <code>$ python3 - timer.py</code>
+  <li>Use Exam(semester, year, numbers-of-total-questions) to construct an instance of exam. for example asign it with name fall_2017. After hit <code>enter</code>, you can provide points for each question. </li>
+  <code> >>> fall_spring = Exam('fall', 2017, 7) # 7 means there are 7 questions in fall 2017. </code>
   <li>Use fall_2017.start(question_number) to start a timing for a question.</li>
-  ```python
-  >>> fall_2017.start(1)
-  ```
+  
+  <code>>>> fall_2017.start(1)</code>
   <li>Use fall_2017.end(question_number) to end a timing for a question.</li>
-  python
-  >>> fall_2017.end(1)
+  <code>>>> fall_2017.end(1)</code>
   
-  <li>You can see you record in the `record.txt` file in the same folder you launch python file.</li>
+  <li>You can see you record in the `record.txt` file in the same folder you launch python file.</li></br>
   
- 
   ![Record file](https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.13.png?raw=true)
   </br>
   <li>Program will calculate your average time and estimated score base on your mean score/mins. </li>
