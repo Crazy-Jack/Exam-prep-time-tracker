@@ -26,7 +26,7 @@
   </br>
   
   </br>
-  <li>You can see you record in the `record.txt` file in the same folder you launch python file.</li></br>
+  <li>You can see you record in the <file> record.txt </file> file in the same folder you launch python file.</li></br>
   
   ![Record file](https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.13.png?raw=true)
   </br>
