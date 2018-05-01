@@ -107,7 +107,7 @@ class Exam:
             self.questions.update(make_exam)
         else:
             for i in range(total_questions_number):
-                question_points = input("Points of No. {0} question".format(i+1))
+                question_points = int(input("Points of No. {0} question: ".format(i+1)))
                 this_question = question(self.semester, self.year, i, question_points)
                 self.questions = self.questions.update({i+1:this_question})
 
