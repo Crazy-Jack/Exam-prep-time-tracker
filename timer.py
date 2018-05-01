@@ -48,6 +48,8 @@ class question:
     def point_per_min(self):
         if not self.is_finished():
             return "Not Finished"
+        if self.span_mins == 0:
+            return self.points
         return self.points / self.span_mins
 
     def is_finished(self):
@@ -107,9 +109,12 @@ class Exam:
             self.questions.update(make_exam)
         else:
             for i in range(total_questions_number):
-                question_points = int(input("Points of No. {0} question: ".format(i+1)))
-                this_question = question(self.semester, self.year, i, question_points)
-                self.questions = self.questions.update({i+1:this_question})
+                p = input("Points of No. {0} question: ".format(i+1))
+                while p is '':
+                    p = input('Wrong input.' + '\n' + 'Points of No. {0} question: '.format(i+1))
+                question_points = int(p)
+                this_question = question(self.semester, self.year, i + 1, question_points)
+                self.questions.update({i+1:this_question})
 
     @property
     def questions_finished(self):
@@ -125,16 +130,22 @@ class Exam:
 
     def start(self, number, start_time=dt.datetime.now()):
         question.start(self.questions[number], start_time)
+        with open('record.txt','a') as f:
+            f.write('\n'*2 + str(self.questions[number]) + '\n' + 'Start @ ' + start_time.strftime('%Y-%b-%d-%H-%M') + '\n')
 
     def end(self, number, end_time=dt.datetime.now()):
         #??self.questions[number].end(end_time)
         question.end(self.questions[number], end_time)
+        with open('record.txt','a') as f:
+            f.write('End   @ ' + end_time.strftime('%Y-%b-%d-%H-%M') + '\n' + 'Time_spent: ' + str(self.questions[number].span_mins) + '\n' + 'Questions per mins: ' + str(self.questions[number].point_per_min) + '\n')
+            f.write(str(self) + '\n'*2)
+
+
     def is_question_finished(self, number):
         return self.questions[number].is_finished()
 
     def is_exam_finished(self):
         return all([self.is_question_finished(index) for index, value in self.questions.items()])
-
 
 
 ### DATA ABSTRACTION ###
