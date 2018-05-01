@@ -97,7 +97,7 @@ class Exam:
     True
     """
 
-    def __init__(self, semester, year, questions, make_exam=False):
+    def __init__(self, semester, year, total_questions_number, make_exam=False):
         assert type(year) is int, 'Year SHOULD be int'
         assert type(semester) is str, 'Semester should be str'
         self.year = year
@@ -106,7 +106,7 @@ class Exam:
         if make_exam:
             self.questions.update(make_exam)
         else:
-            for i in range(questions):
+            for i in range(total_questions_number):
                 question_points = input("Points of No. {0} question".format(i+1))
                 this_question = question(self.semester, self.year, i, question_points)
                 self.questions = self.questions.update({i+1:this_question})
