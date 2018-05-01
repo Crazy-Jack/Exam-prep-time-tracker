@@ -24,10 +24,10 @@
   ```
   <li>You can see you record in the `record.txt` file in the same folder you launch python file.</li>
   
-  ![Alt text](./https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.13.png?raw=true "title)
-  ![Record file](https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.13.png)
+ 
+  ![Record file](https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.13.png?raw=true)
   <li>Program will calculate your average time and estimated score base on your mean score/mins. </li>
 </ul>
-![Record file](https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.13.png)
+
 
 
