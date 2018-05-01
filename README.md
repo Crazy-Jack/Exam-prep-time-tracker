@@ -3,5 +3,5 @@
 This is a program to help people keep track of how much time they spent on each question when they prepared an exam. </br>
 Good Luck to the Final! :D 
 
-<ul>Features</ul>
+<p align="center"> Time's limited, README will come up after the final </p>
 
