@@ -2,8 +2,11 @@
 <b><p align="center"> FOR exam prep for CS61A at Cal </p></b>
 <b>&nbsp;  &nbsp;  &nbsp;  &nbsp;  This is a program to help people keep track of how much time they spent on each question when they prepared an exam. Good Luck to the Finals! :D </b></br>
 
-<p> Main funtion:</p> 
+<p> Main funtion:</p> </br>
 
+![Main function](https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.29.png?raw=true)
+
+</br>
 
 <ul>
   <li>Use terminal launch the python3 program: python3 -i timer.py</li>
@@ -26,6 +29,7 @@
   
  
   ![Record file](https://github.com/Crazy-Jack/Exam-prep-time-tracker/blob/master/Screen%20Shot%200030-05-01%20at%2004.49.13.png?raw=true)
+  </br>
   <li>Program will calculate your average time and estimated score base on your mean score/mins. </li>
 </ul>
 
