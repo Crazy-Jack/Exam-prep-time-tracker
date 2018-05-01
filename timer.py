@@ -22,7 +22,7 @@ class question:
     def __init__(self, semester, year, number, points):
         assert all(map(lambda x: type(x) is int, [year, number, points])), 'Year, Number, Points SHOULD be int'
         assert type(semester) is str
-        self.semester = semester.lower()
+        self.semester = semester.upper()
         self.year = int(year)
         self.number = number
         self.points = points
@@ -103,7 +103,7 @@ class Exam:
         assert type(year) is int, 'Year SHOULD be int'
         assert type(semester) is str, 'Semester should be str'
         self.year = year
-        self.semester = semester.lower()
+        self.semester = semester.upper()
         self.questions = {}
         if make_exam:
             self.questions.update(make_exam)
@@ -115,6 +115,9 @@ class Exam:
                 question_points = int(p)
                 this_question = question(self.semester, self.year, i + 1, question_points)
                 self.questions.update({i+1:this_question})
+        with open('record.txt', 'a') as f:
+            f.write('-'* 40 +' Welcome to CS61A final prep! :D ' + '-'*40 + '\n')
+            f.write('###' + ' Initializing {0} {1}.......'.format(self.year, self.semester) + '\n')
 
     @property
     def questions_finished(self):
@@ -126,19 +129,30 @@ class Exam:
         return {i:value for i, value in self.questions.items() if i not in self.questions_finished}
 
     def __repr__(self):
+        if len(self.questions_left) == 0:
+            return '{0} {1}. Progress: total {2} questions, All finished!'.format(self.semester, self.year, len(self.questions))
         return '{0} {1}. Progress: total {2} questions, {3} finished, {4} to go!'.format(self.semester, self.year, len(self.questions), len(self.questions_finished), len(self.questions_left))
 
     def start(self, number, start_time=dt.datetime.now()):
         question.start(self.questions[number], start_time)
         with open('record.txt','a') as f:
-            f.write('\n'*2 + str(self.questions[number]) + '\n' + 'Start @ ' + start_time.strftime('%Y-%b-%d-%H-%M') + '\n')
+            f.write('\n'*2 + str(self.questions[number]) + '\n' + 'Start @ ' + start_time.strftime('%Y-%b-%d %H:%M') + '\n')
 
     def end(self, number, end_time=dt.datetime.now()):
         #??self.questions[number].end(end_time)
         question.end(self.questions[number], end_time)
         with open('record.txt','a') as f:
-            f.write('End   @ ' + end_time.strftime('%Y-%b-%d-%H-%M') + '\n' + 'Time_spent: ' + str(self.questions[number].span_mins) + '\n' + 'Questions per mins: ' + str(self.questions[number].point_per_min) + '\n')
-            f.write(str(self) + '\n'*2)
+            f.write('End   @ ' + end_time.strftime('%Y-%b-%d %H:%M') + '\n' + 'Time_spent: ' + str(self.span_mins(number)) + ' mins' + '\n' + 'Points earned per mins: ' + str(self.point_per_min(number)) + ' points/min ' + '\n')
+            f.write(str(self) + '\n'*2 )
+            if self.is_exam_finished():
+                f.write('Congrates, you have finished this exam!' + '\n' + 'The overall performance is as follows: ' + '\n'*2)
+                self.overall_eval(f)
+
+    def span_mins(self, number):
+        return self.questions[number].span_mins
+
+    def point_per_min(self, number):
+        return self.questions[number].point_per_min
 
 
     def is_question_finished(self, number):
@@ -147,8 +161,32 @@ class Exam:
     def is_exam_finished(self):
         return all([self.is_question_finished(index) for index, value in self.questions.items()])
 
+    def overall_hours(self, want_hours=True):
+        time_mins = sum([self.span_mins(i) for i in self.questions])
+        if want_hours:
+            return time_mins / 60
+        return time_mins
 
-### DATA ABSTRACTION ###
+    def overall_ppm(self):
+        if self.questions is {}:
+            return "Sorry, no question here."
+        return sum([self.point_per_min(i) for i in self.questions]) / len(self.questions)
+
+    def estimate_score(self, time_amount=180):
+        if self.questions is {}:
+            return "Sorry, No question here."
+        return self.overall_ppm() * time_amount
+
+    def overall_eval(self, f):
+        if not self.is_exam_finished():
+            f.write('Warning, you haven\'t finish your mock exam.' + '\n')
+        if self.questions is {}:
+            f.write("Sorry, there's no question here!")
+        f.write('Overall Performance' + '\n')
+        f.write('Time span: ' + str(self.overall_hours()) + '\n')
+        f.write('Point per mins: ' + str(self.overall_ppm()) + '\n')
+        f.write('Estimate final: ' + str(self.estimate_score()) + '\n'*2)
+
 
 # Make exam for test.
 def make_exam(*args):
