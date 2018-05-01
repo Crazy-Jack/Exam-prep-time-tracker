@@ -5,9 +5,6 @@
 <p>&nbsp;  &nbsp;  &nbsp;  &nbsp;  Main funtion:</p> </br>
 
 
-
-</br>
-
 <ul>
   <li>Use terminal launch the python3 program: python3 -i timer.py</li>
   ```bash
