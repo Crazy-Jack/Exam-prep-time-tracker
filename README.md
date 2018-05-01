@@ -1,7 +1,4 @@
-# Exam Prep Time Tracker
-<center> FOR CS61A at Cal. 
-A program to help people keep track of how much time they spent on each question when they prepared an exam. 
-Good Luck to the Final! :D </center>
-
-<ul>
+# <h1 align="center">Exam Prep Time Tracker</h1>
+<b><p align="center"> FOR exam prep for CS61A at Cal </p></b>
+<b>&nbsp;  &nbsp;  &nbsp;  &nbsp;  This is a program to help people keep track of how much time they spent on each question when they prepared an exam. Good Luck to the Finals! :D </b></br>
 
