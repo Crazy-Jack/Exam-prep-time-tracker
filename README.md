@@ -2,7 +2,9 @@
 <b><p align="center"> FOR exam prep for CS61A at Cal </p></b>
 <b>&nbsp;  &nbsp;  &nbsp;  &nbsp;  This is a program to help people keep track of how much time they spent on each question when they prepared an exam. Good Luck to the Finals! :D </b></br>
 
-<p> Main funtion:</p> </br>
+<p> Main funtion:</p> 
+
+<img
 
 <ol>
   <li>Use terminal launch the python3 program: `python3 -i timer.py`</li>
@@ -12,3 +14,5 @@
   <li>You can see you record in the `record.txt` file in the same folder you launch python file.</li>
   <li>Program will calculate your average time and estimated score base on your mean score/mins. </li>
 </ol>
+
+<img 
